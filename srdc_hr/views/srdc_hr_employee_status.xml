@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="srdc_hr_employee_status_tree" model="ir.ui.view">
+        <field name="name">srdc.hr.employees.status.tree</field>
+        <field name="model">srdc.hr.employees.status</field>
+        <field name="arch" type="xml">
+            <tree editable="top">
+                <field name="name"/>
+                <field name="symbol"/>
+                <field name="type_of_labor_contract"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_srdc_hr_employee_status" model="ir.actions.act_window">
+        <field name="name">Employee Status</field>
+        <field name="res_model">srdc.hr.employees.status</field>
+        <field name="view_mode">tree</field>
+    </record>
+</odoo>

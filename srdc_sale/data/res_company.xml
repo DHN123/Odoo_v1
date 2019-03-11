@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <function name="write" model="ir.model.data">
+        <function name="search" model="ir.model.data">
+            <value eval="[('module', '=', 'base'), ('name', '=', 'main_company')]"/>
+        </function>
+        <value eval="{'noupdate': False}"/>
+    </function>
+
+    <record model="res.company" id="base.main_company">
+        <field name="name">Công Ty Trách Nhiệm Hữu Hạn SAI GON - RDC</field>
+        <field name="code">SRDC</field>
+        <field name="website">https://www.saigonrdc.com/vi/</field>
+        <field name="phone">02839256969</field>
+        <field name="email">info@saigonrdc.com</field>
+        <field name="vat">0301465337</field>
+        <field name="image" type="base64" file="srdc_sale/static/description/icon.png"/>
+        <field name="street">Lầu 9 Tòa nhà Central Park, 208 đường Nguyễn Trãi, Phường Phạm Ngũ Lão</field>
+    </record>
+
+    <function name="write" model="ir.model.data">
+        <function name="search" model="ir.model.data">
+            <value eval="[('module', '=', 'base'), ('name', '=', 'main_company')]"/>
+        </function>
+        <value eval="{'noupdate': True}"/>
+    </function>
+</odoo>

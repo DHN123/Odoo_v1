@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-extend="Sidebar">
+        <t t-jquery=".dropdown-menu" t-operation="append">
+            <div t-if="section.name == 'files' and widget.options.editable" class="dropdown-item o_sidebar_manage_attachment">
+                Manage
+                <span class="fa fa-files-o o_sidebar_manage_icon"/>
+            </div>
+        </t>
+    </t>
+</templates>

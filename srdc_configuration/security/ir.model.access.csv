@@ -1,0 +1,3 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+acces_srdc_uom_uom,srdc_uom_uom,model_srdc_uom_uom,,1,1,1,1
+access_srdc_vat,srdc_vat,model_srdc_vat,,1,1,1,1

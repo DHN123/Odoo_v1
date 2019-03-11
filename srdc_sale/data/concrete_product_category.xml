@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="concrete_product_category" model="product.category">
+        <field name="name">Concrete</field>
+    </record>
+</odoo>

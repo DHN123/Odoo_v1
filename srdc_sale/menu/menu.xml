@@ -1,0 +1,61 @@
+<odoo>
+    <record id="mail.menu_root_discuss" model="ir.ui.menu">
+        <field name="sequence" eval="3"/>
+    </record>
+
+    <!-- Root Menu -->
+    <menuitem name="SRDC (Sale)" id="menu_srdc_sale_root" web_icon="srdc_sale,static/description/icon.png" sequence="1"/>
+
+    <!--res_country_district menu-->
+    <menuitem id="res_country_district" name="Country District"
+              parent="contacts.menu_localisation" action="res_country_district_list_action"/>
+
+    <!-- Top Menu -->
+    <menuitem name="Sale" id="menu_srdc_sale" parent="menu_srdc_sale_root" sequence="1"/>
+    <menuitem name="Contracts" id="menu_srdc_contract" parent="menu_srdc_sale_root" sequence="2"/>
+    <menuitem name="Project" id="menu_srdc_project" parent="menu_srdc_sale_root" sequence="3"/>
+    <menuitem name="Product" id="menu_srdc_product" parent="menu_srdc_sale_root" sequence="4"/>
+    <menuitem name="Configuration" id="menu_srdc_config" parent="menu_srdc_sale_root" sequence="99"/>
+
+    <!-- Third Menu -->
+    <menuitem name="Customers" id="menu_srdc_customers" parent="menu_srdc_sale" sequence="1" action="base.action_partner_form"/>
+    <menuitem name="Competitor" id="menu_srdc_competitor" parent="menu_srdc_sale" sequence="2" action="action_competitor_form"/>
+    <menuitem name="Investor" id="menu_srdc_investor" parent="menu_srdc_sale" sequence="3" action="action_investor_form"/>
+    <menuitem name="Consultant" id="menu_srdc_consultant" parent="menu_srdc_sale" sequence="4" action="action_consultant_form"/>
+    <menuitem name="Customer Orders" id="menu_srdc_customer_orders" parent="menu_srdc_sale" sequence="5" action="action_customer_order"/>
+    <menuitem name="Quotations" id="menu_srdc_quotations" parent="menu_srdc_sale" sequence="6" action="sale.action_quotations_with_onboarding"/>
+    <menuitem name="Sale Orders" id="menu_srdc_sale_orders" parent="menu_srdc_sale" sequence="7" action="sale.action_orders"/>
+
+
+
+    <menuitem name="Contracts" id="menu_srdc_contracts" parent="menu_srdc_contract" sequence="1" action="srdc_contract_list_action"/>
+    <menuitem name="Internal Order" id="menu_srdc_io" parent="menu_srdc_contract" sequence="2" action="srdc_io_list_action"/>
+
+    <menuitem name="Projects" id="menu_srdc_projects" parent="menu_srdc_project" sequence="1" action="action_project_project"/>
+
+    <menuitem name="Products" id="menu_srdc_products" parent="menu_srdc_product" sequence="1" action="sale.product_template_action"/>
+    <menuitem name="Product Variants" id="menu_srdc_product_variants" parent="menu_srdc_product" sequence="2" action="product.product_normal_action_sell" groups="product.group_product_variant"/>
+    <menuitem name="Units of Measure" id="menu_srdc_product_uom" parent="menu_srdc_product" sequence="3" action="uom.product_uom_form_action"/>
+    <!--<menuitem name="Bill of Materials" id="menu_srdc_boms" parent="menu_srdc_product" sequence="3" action="mrp.mrp_bom_form_action"/>-->
+
+    <menuitem name="Product Categories" id="menu_product_category_config_sale" parent="menu_srdc_config" sequence="1" action="product.product_category_action_form"/>
+    <menuitem name="Concrete Pump Attributes Categories" id="menu_concrete_pump_attributes_categories" parent="menu_srdc_config" sequence="2" action="srdc_concrete_pump_category_action"/>
+    <menuitem name="Localization" id="menu_srdc_config_localisation" parent="menu_srdc_config" sequence="3"/>
+    <menuitem name="Products" id="menu_srdc_config_products" parent="menu_srdc_config" sequence="4" groups="product.group_product_variant"/>
+    <menuitem name="Tender Packages" id="menu_srdc_tender_package" parent="menu_srdc_config" sequence="5" action="action_srdc_tender_package"/>
+    <menuitem name="Concrete Pump" id="menu_srdc_concrete_pump_config" parent="menu_srdc_config" sequence="6"/>
+
+    <!-- Forth menu -->
+    <menuitem name="Districts" id="res_country_district" parent="menu_srdc_config_localisation" action="res_country_district_list_action" sequence="1"/>
+    <menuitem name="Ward" id="menu_ward_partner" action="res_country_ward_action" parent="menu_srdc_config_localisation" sequence="2"/>
+    <menuitem name="Cities" id="menu_country_state_partner" action="base.action_country_state" parent="menu_srdc_config_localisation" sequence="3"/>
+    <menuitem name="Countries" id="menu_country_partner" action="base.action_country" parent="menu_srdc_config_localisation" sequence="4"/>
+    <menuitem name="Country Groups" id="menu_country_group" action="base.action_country_group" parent="menu_srdc_config_localisation" sequence="5"/>
+
+    <menuitem name="Attributes" id="menu_product_attribute" action="product.attribute_action" parent="menu_srdc_config_products" sequence="1"/>
+    <menuitem name="Attribute Values" id="menu_product_attribute_value" action="product.variants_action" parent="menu_srdc_config_products" sequence="2"/>
+
+    <menuitem name="Type of Pump" id="srdc_type_of_pump" parent="menu_srdc_concrete_pump_config" sequence="1" action="srdc_type_of_pump_action"/>
+    <menuitem name="Floor Elevation" id="srdc_floor_elevation" parent="menu_srdc_concrete_pump_config" sequence="2" action="srdc_floor_elevation_action"/>
+    <menuitem name="Concrete Pump Volume" id="srdc_concrete_pump_volume" parent="menu_srdc_concrete_pump_config" sequence="3" action="srdc_concrete_pump_volume_action"/>
+</odoo>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Tree View-->
+    <record id="srdc_floor_elevation_tree" model="ir.ui.view">
+        <field name="name">SRDC Floor Elevation Tree</field>
+        <field name="model">srdc.floor.elevation</field>
+        <field name="arch" type="xml">
+            <tree string="SRDC Floor Elevation" editable="bottom">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--Search View-->
+    <record id="srdc_floor_elevation_search" model="ir.ui.view">
+        <field name="name"> SRDC Floor Elevation Search</field>
+        <field name="model">srdc.floor.elevation</field>
+        <field name="arch" type="xml">
+            <search string="SRDC Floor Elevation">
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="srdc_floor_elevation_action" model="ir.actions.act_window">
+        <field name="name">SRDC Floor Elevation</field>
+        <field name="res_model">srdc.floor.elevation</field>
+        <field name="view_mode">tree</field>
+    </record>
+</odoo>

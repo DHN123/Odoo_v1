@@ -1,0 +1,18 @@
+<odoo>
+    <record id="mail.menu_root_discuss" model="ir.ui.view">
+        <field name="sequence" eval="3"/>
+    </record>
+
+    <!--Root Menu-->
+    <menuitem name="SRDC (Employees)" id="menu_srdc_hr_root" web_icon="srdc_hr,static/description/icon.png" sequence="5"/>
+
+    <!--Top Menu-->
+    <menuitem name="Employees" id="menu_srdc_hr_employee" parent="menu_srdc_hr_root" sequence="1" action="action_srdc_hr_employee"/>
+    <menuitem name="Department" id="menu_srdc_hr_department" parent="menu_srdc_hr_root" sequence="2" action="action_srdc_hr_department"/>
+    <menuitem name="Configuration" id="menu_srdc_hr_configuration" parent="menu_srdc_hr_root" sequence="3"/>
+
+    <!--Third Menu-->
+    <menuitem name="Setting" id="menu_srdc_hr_configuration_setting" parent="menu_srdc_hr_configuration" sequence="1" action="action_srdc_hr_configuration_setting"/>
+    <menuitem name="Employees Tag" id="menu_srdc_hr_configuration_employees_tags" parent="menu_srdc_hr_configuration" sequence="2" action="action_srdc_hr_configuration_employees_tags"/>
+    <menuitem name="Employees Status" id="menu_srdc_hr_employee_status" parent="menu_srdc_hr_configuration" sequence="3" action="action_srdc_hr_employee_status"/>
+</odoo>

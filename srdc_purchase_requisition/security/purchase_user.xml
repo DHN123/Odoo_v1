@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--<record model="ir.module.category" id="module_management">-->
+        <!--<field name="name">Srdc Purchase</field>-->
+        <!--<field name="descriptions">User access level for this module</field>-->
+        <!--<field name="sequence">3</field>-->
+    <!--</record>-->
+
+    <!--&lt;!&ndash;Purchase Order&ndash;&gt;-->
+    <!--<record id="group_purchase_users" model="res.groups">-->
+        <!--<field name="name">Srdc Purchasing Users</field>-->
+        <!--<field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>-->
+        <!--<field name="user" eval="[(4, ref('base.user_root'))]"/>-->
+        <!--<field name="category_id" ref="srdc_purchase_requisition.module_management"/>-->
+    <!--</record>-->
+
+    <!--<record id="group_purchase_order_accounting" model="res.groups">-->
+        <!--<field name="name">Srdc Purchasing Accounting</field>-->
+        <!--<field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>-->
+        <!--<field name="user" eval="[(4, ref('base.user_root'))]"/>-->
+        <!--<field name="category_id" ref="srdc_purchase_requisition.module_management"/>-->
+    <!--</record>-->
+
+    <!--<record id="group_purchase_order_manager" model="res.groups">-->
+        <!--<field name="name">Srdc Purchasing Manager</field>-->
+        <!--<field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>-->
+        <!--<field name="user" eval="[(4, ref('base.user_root'))]"/>-->
+        <!--<field name="category_id" ref="srdc_purchase_requisition.module_management"/>-->
+    <!--</record>-->
+
+    <!--<record id="group_purchase_order_boss" model="res.groups">-->
+        <!--<field name="name">Srdc Purchasing Boss</field>-->
+        <!--<field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>-->
+        <!--<field name="user" eval="[(4, ref('base.user_root'))]"/>-->
+        <!--<field name="category_id" ref="srdc_purchase_requisition.module_management"/>-->
+    <!--</record>-->
+
+    <!--&lt;!&ndash;Purchase Order Line&ndash;&gt;-->
+    <!--<record id="group_purchase_order_line_users" model="res.groups">-->
+        <!--<field name="name">Srdc Purchasing Order Line Users</field>-->
+        <!--<field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>-->
+        <!--<field name="user" eval="[(4, ref('base.user_root'))]"/>-->
+        <!--<field name="category_id" ref="srdc_purchase_requisition.module_management"/>-->
+    <!--</record>-->
+</odoo>

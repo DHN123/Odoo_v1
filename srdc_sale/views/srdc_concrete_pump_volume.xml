@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Tree View-->
+    <record id="srdc_concrete_pump_volume_tree" model="ir.ui.view">
+        <field name="name">SRDC Concrete Pump Volume Tree</field>
+        <field name="model">srdc.concrete.pump.volume</field>
+        <field name="arch" type="xml">
+            <tree string="SRDC Concrete Pump Volume" editable="bottom">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--Search View-->
+    <record id="srdc_concrete_pump_volume_search" model="ir.ui.view">
+        <field name="name">SRDC Concrete Pump Volume Search</field>
+        <field name="model">srdc.concrete.pump.volume</field>
+        <field name="arch" type="xml">
+            <search string="SRDC Concrete Pump Volume">
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="srdc_concrete_pump_volume_action" model="ir.actions.act_window">
+        <field name="name">SRDC Concrete Pump Volume</field>
+        <field name="res_model">srdc.concrete.pump.volume</field>
+        <field name="view_mode">tree</field>
+    </record>
+</odoo>

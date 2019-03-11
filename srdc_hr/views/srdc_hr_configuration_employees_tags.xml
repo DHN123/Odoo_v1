@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="srdc_hr_configuration_employees_tags_form_inherit" model="ir.ui.view">
+        <field name="name">srdc.hr.employee.tags.form.inherit</field>
+        <field name="model">hr.employee.category</field>
+        <field name="inherit" ref="hr.view_employee_category_form"/>
+        <field name="arch" type="xml">
+            <form>
+
+            </form>
+        </field>
+    </record>
+
+    <record id="srdc_hr_configuration_employees_tags_tree_inherit" model="ir.ui.view">
+        <field name="name">srdc.hr.employee.tags.tree.inherit</field>
+        <field name="model">hr.employee.category</field>
+        <field name="inherit" ref="hr.view_employee_category_list"/>
+        <field name="arch" type="xml">
+            <tree>
+
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_srdc_hr_configuration_employees_tags" model="ir.actions.act_window">
+        <field name="name">Employees</field>
+        <field name="res_model">hr.employee.category</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Tree View-->
+    <record model="ir.ui.view" id="tender_package_tree">
+        <field name="name">Tender Packages List</field>
+        <field name="model">srdc.tender.package</field>
+        <field name="arch" type="xml">
+            <tree string="Tender Packages" editable="top">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--Search View-->
+    <record model="ir.ui.view" id="tender_package_filter">
+        <field name="name">Tender Packages Filter</field>
+        <field name="model">srdc.tender.package</field>
+        <field name="arch" type="xml">
+            <search string="Tender Packages">
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_srdc_tender_package">
+        <field name="name">Tender Packages</field>
+        <field name="res_model">srdc.tender.package</field>
+        <field name="view_mode">tree</field>
+    </record>
+</odoo>

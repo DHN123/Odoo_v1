@@ -1,0 +1,6 @@
+<odoo>
+    <record id="config_sale_commission_rate" model="ir.config_parameter">
+        <field name="key">sale_commission_rate</field>
+        <field name="value">0.75</field>
+    </record>
+</odoo>

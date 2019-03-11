@@ -1,0 +1,19 @@
+<odoo>
+    <!--Tree View-->
+    <record model="ir.ui.view" id="srdc_trialmix_result_value_tree">
+        <field name="name">srdc_trialmix_result_value_tree</field>
+        <field name="model">srdc.trialmix.result.value</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="sequence"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="result_value_action">
+        <field name="name">Result Value</field>
+        <field name="res_model">srdc.trialmix.result.value</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

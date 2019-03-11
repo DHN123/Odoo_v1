@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+    <template id="template" xml:space="preserve">
+
+          <t t-extend="ListView.buttons">
+
+                 <t t-jquery="button.o_list_button_add" t-operation="after">
+
+                          <button t-if="widget.model == 'concrete.pump.category'"  class="btn btn-primary new_button" type="button">GO GO</button>
+
+                          <!--<button t-if="widget.model != 'concrete.pump.category'" class="btn btn-primary o_list_button_add" type="button">Create</button>-->
+
+                </t>
+
+          </t>
+
+</template>

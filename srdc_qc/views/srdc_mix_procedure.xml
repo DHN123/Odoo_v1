@@ -1,0 +1,122 @@
+<odoo>
+    <record id="srdc_mix_procedure_form" model="ir.ui.view">
+        <field name="name">srdc.mix.procedure.form</field>
+        <field name="model">srdc.mix.procedure</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="btn_start_optimize" string="Start Optimize" type="object" class="btn-primary" states="draft"/>
+                    <button name="btn_done_optimize" string="Optimize Done" type="object" class="btn-primary" states="in_progress"/>
+                    <button name="btn_qc_approve" string="QC Manager Approve" type="object" class="btn-primary" states="done_optimize"/>
+                    <button name="btn_approve" string="Accountant Approve" type="object" class="btn-primary" states="qc_approved"/>
+                    <button name="btn_pending" string="Pending" type="object" class="btn-secondary" states="in_progress,qc_approved,done_optimize"/>
+                    <button name="btn_set_to_draft" string="Reset" type="object" class="btn-secondary" states="cancel"/>
+                    <button name="btn_cancel" string="Cancel" type="object" class="btn-secondary" states="draft,in_progress,qc_approved,done_optimize,pending"/>
+                    <field name="state" widget="statusbar" clickable="1"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="order_id" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group col="4">
+                        <field name="partner_id" attrs="{'readonly': [('state','!=', 'draft')]}"/>
+                        <field name="project_id" attrs="{'readonly': [('state','!=', 'draft')]}"/>
+                        <field name="choose_type" attrs="{'readonly': [('state','!=', 'draft')]}"/>
+                        <field name="request_date" attrs="{'readonly': [('state','!=', 'draft')]}"/>
+                        <field name="company_id" groups="base.group_multi_company"/>
+                        <field name="currency_id" options="{'no_create': True, 'no_open': True}" groups="base.group_multi_currency"/>
+                        <field name="is_refund" invisible="1"/>
+                    </group>
+                    <notebook>
+                        <page string="List Mix Design" name="list_mix_design">
+                            <field name="line_ids" context="{'default_procedure_id': active_id}" nolabel="1">
+                                <tree editable="top">
+                                    <field name="product_id" attrs="{'readonly': [('parent.state','!=', 'draft')]}"/>
+                                    <field name="mix_design_id" domain="[('product_id', 'like', product_id)]"
+                                           on_change="set_mix_design_id(mix_design_id)"
+                                           context="{'default_product_id': product_id, 'default_product_id': product_id, 'default_is_auto': 1}"
+                                           attrs="{'column_invisible': [('parent.choose_type','not in', ['batch', 'both'])], 'readonly': [('parent.state','in', ['done_optimize', 'qc_approved', 'done'])]}"/>
+                                    <field name="mix_design_2nd_id" domain="[('product_id', 'like', product_id)]"
+                                           context="{'default_product_id': product_id, 'default_product_id': product_id, 'default_is_auto': 1}"
+                                           attrs="{'column_invisible': [('parent.choose_type','not in', ['deli', 'both'])], 'readonly': [('parent.state','in', ['done_optimize', 'qc_approved', 'done'])]}"/>
+                                    <field name="currency_id" options="{'no_create': True, 'no_open': True}" groups="base.group_multi_currency"/>
+                                    <field name="total_amount" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                                    <field name="other_variable" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                                    <field name="line_id" invisible="1"/>
+                                    <field name="product_id" invisible="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Accounting" name="accounting" attrs="{'invisible': [('state', 'not in', ['done_optimize', 'qc_approved','done'])]}">
+                            <label for="other_variable"/>
+                            <h1>
+                                <field name="other_variable"/>
+                            </h1>
+                            <group>
+                                <group>
+                                    <field name="transportation_fee" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                                    <field name="traffic_police_fee" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                                    <field name="ice_water_fee" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                                    <field name="testing_fee" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                                    <field name="other_cost" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                                </group>
+                                <group>
+                                    <field name="toll_booths_num"/>
+                                    <field name="toll_fee" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                                    <field name="is_rush_hour"/>
+                                    <field name="rush_hour_fee" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                                    <field name="commission" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Description" name="description">
+                            <field name="description" nolabel="1"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="srdc_mix_procedure_tree" model="ir.ui.view">
+        <field name="name">srdc.mix.procedure.tree</field>
+        <field name="model">srdc.mix.procedure</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="order_id"/>
+                <field name="partner_id"/>
+                <field name="project_id"/>
+                <field name="request_date"/>
+                <field name="choose_type"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="srdc_mix_procedure_filter">
+        <field name="name">srdc_mix_procedure</field>
+        <field name="model">srdc.mix.procedure</field>
+        <field name="arch" type="xml">
+            <search string="Mix Procedure">
+                <field name="order_id"/>
+                <field name="partner_id"/>
+                <field name="project_id"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_srdc_mix_procedure" model="ir.actions.act_window">
+        <field name="name">Mix Procedure</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">srdc.mix.procedure</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

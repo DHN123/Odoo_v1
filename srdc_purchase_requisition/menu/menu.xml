@@ -1,0 +1,17 @@
+<odoo>
+    <record id="mail.menu_root_discuss" model="ir.ui.view">
+        <field name="sequence" eval="3"/>
+    </record>
+
+    <!--Root Menu-->
+    <menuitem name="SRDC (Purchase)" id="menu_srdc_purchase_root" web_icon="srdc_purchase_requisition,static/description/icon.png" sequence="3"/>
+
+    <!--Top Menu-->
+    <menuitem name="Purchase" id="menu_srdc_purchase" parent="menu_srdc_purchase_root" sequence="1"/>
+    <menuitem name="Configuration" id="menu_srdc_configuration" parent="menu_srdc_purchase_root" sequence="2"/>
+
+    <!--Third Menu-->
+    <menuitem name="Purchase Order" id="menu_srdc_purchase_order" parent="menu_srdc_purchase" sequence="1" action="action_srdc_purchase_order"/>
+    <menuitem name="Purchase Attribute" id="menu_srdc_attribute" parent="menu_srdc_configuration" sequence="1" action="action_purchase_attribute"/>
+    <menuitem name="Purchase Attribute Value" id="menu_srdc_attribute_value" parent="menu_srdc_configuration" sequence="2" action="action_purchase_attribute_value"/>
+</odoo>

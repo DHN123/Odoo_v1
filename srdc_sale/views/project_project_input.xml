@@ -1,0 +1,23 @@
+<odoo>
+    <!--Form View-->
+    <record model="ir.ui.view" id="project_project_input_form">
+        <field name="name">project_project_input</field>
+        <field name="model">project.project.input</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" string="Level"/>
+                            <field name="estimate_volume"/>
+                        </group>
+                        <group>
+                            <field name="project_id"/>
+                            <field name="note"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

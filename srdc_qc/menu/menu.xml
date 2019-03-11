@@ -1,0 +1,29 @@
+<odoo>
+    <record id="mail.menu_root_discuss" model="ir.ui.menu">
+        <field name="sequence" eval="3"/>
+    </record>
+    <!--Root menu-->
+    <menuitem name="SRDC (QC)" id="menu_srdc_qc_root" web_icon="srdc_qc,static/description/icon.png" sequence="2"/>
+
+    <!--Second menu-->
+    <menuitem name="QC" id="menu_srdc_qc" parent="menu_srdc_qc_root" sequence="1"/>
+    <menuitem name="Purchase" id="menu_srdc_purchase" parent="menu_srdc_qc_root" sequence="2"/>
+    <menuitem name="Master Data" id="menu_masterdata" parent="menu_srdc_qc_root" sequence="50"/>
+    <menuitem name="Configuration" id="menu_srdc_config" parent="menu_srdc_qc_root" sequence="99"/>
+
+    <!--Third Menu-->
+    <menuitem name="Mix Procedure" id="menu_srdc_mix_procedure" parent="menu_srdc_qc" sequence="1" action="action_srdc_mix_procedure"/>
+    <menuitem name="Trial Mix" id="menu_srdc_trial_mix" parent="menu_srdc_qc" sequence="2" action="srdc_trial_mix_action_form"/>
+
+    <menuitem name="Vendor Pricelists" id="menu_srdc_supllierinfo" parent="menu_srdc_purchase" sequence="1" action="product.product_supplierinfo_type_action"/>
+
+    <menuitem name="Mix Design" id="menu_mix_design" parent="menu_masterdata" sequence="1" action="mix_design_form_action"/>
+    <menuitem name="Products" id="menu_srdc_products" parent="menu_masterdata" sequence="2" action="purchase.product_normal_action_puchased"/>
+    <menuitem name="Product Variants" id="menu_srdc_product_variants" parent="menu_masterdata" sequence="3" action="purchase.product_product_action" groups="product.group_product_variant"/>
+
+    <menuitem name="Units of Measure" id="menu_srdc_product_uom" parent="menu_srdc_config" sequence="2" action="uom.product_uom_form_action"/>
+    <menuitem name="Vendor Pricelists" id="menu_srdc_product_supplierinfo" parent="menu_srdc_config" sequence="3" action="product.product_supplierinfo_type_action"/>
+    <menuitem name="Trial Mix" id="menu_srdc_trialmix" parent="menu_srdc_config" sequence="4"/>
+
+    <menuitem name="Result Value" id="menu_srdc_result_value" action="result_value_action" parent="menu_srdc_trialmix" sequence="1"/>
+</odoo>

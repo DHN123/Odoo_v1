@@ -1,0 +1,6 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_srdc_purchase_attribute,srdc_purchase_attribute,model_srdc_purchase_attribute,,1,1,1,1
+access_srdc_purchase_attribute_value,srdc_purchase_attribute_value,model_srdc_purchase_attribute_value,,1,1,1,1
+access_srdc_purchase_attribute_line,srdc_purchase_attribute_line,model_srdc_purchase_attribute_line,,1,1,1,1
+access_srdc_purchase_order,srdc_purchase_order,model_srdc_purchase_order,,1,1,1,1
+access_srdc_purchase_order_line,srdc_purchase_order_line,model_srdc_purchase_order_line,,1,1,1,0

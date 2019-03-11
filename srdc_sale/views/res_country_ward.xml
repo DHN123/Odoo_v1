@@ -1,0 +1,19 @@
+<odoo>
+    <!--Tree View-->
+    <record model="ir.ui.view" id="res_country_ward_tree">
+        <field name="name">res_country_ward_tree</field>
+        <field name="model">res.country.ward</field>
+        <field name="arch" type="xml">
+            <tree editable="top">
+                <field name="name"/>
+                <field name="district_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="res_country_ward_action">
+        <field name="name">Country Ward</field>
+        <field name="res_model">res.country.ward</field>
+        <field name="type_mode">tree</field>
+    </record>
+</odoo>

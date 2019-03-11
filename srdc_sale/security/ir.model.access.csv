@@ -1,0 +1,19 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_country_district_user,res_country_district user,model_res_country_district,,1,1,1,1
+access_project_customer_user,project_customer user,model_project_customer,,1,1,1,1
+access_project_competitor,project_competitor,model_project_competitor,,1,1,1,1
+access_project_distance_user,project_distance user,model_project_distance,,1,1,1,1
+access_project_project_input,project_project_input,model_project_project_input,,1,1,1,1
+access_project_report,project_report,model_project_report,,1,1,1,1
+access_srdc_contract_user,srdc_contract user,model_srdc_contract,,1,1,1,1
+access_srdc_concrete_pump_category,srdc_concrete_pump_category,model_srdc_concrete_pump_category,,1,1,1,1
+access_srdc_concrete_pump_volume,srdc_concrete_pump_volume,model_srdc_concrete_pump_volume,,1,1,1,1
+access_srdc_floor_elevation,srdc_floor_elevation,model_srdc_floor_elevation,,1,1,1,1
+access_srdc_tender_package_user,srdc_tender_package user,model_srdc_tender_package,,1,1,1,1
+access_wizard_request_qc,wizard_request_qc,model_wizard_request_qc,,1,1,1,1
+access_wizard_generate_io,wizard_generate_io,model_wizard_generate_io,,1,1,1,1
+access_srdc_io,srdc_io,model_srdc_io,,1,1,1,1
+access_srdc_io_line,srdc_io_line,model_srdc_io_line,,1,1,1,1
+access_srdc_plant,srdc_plant,model_srdc_plant,,1,1,1,1
+access_res_country_ward,res_country_ward,model_res_country_ward,,1,1,1,1
+access_srdc_type_of_pump,srdc_type_of_pump,model_srdc_type_of_pump,,1,1,1,1

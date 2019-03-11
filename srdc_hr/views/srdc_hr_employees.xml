@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="srdc_hr_employee_form__inherit" model="ir.ui.view">
+        <field name="name">srdc.hr.employee.form.inherit</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr=".//field[@name='name']" position="after">
+                <group>
+                    <field name="capitalization_name"/>
+                    <field name="msnv"/>
+                </group>
+                <group>
+                    <field name="day_of_job"/>
+                    <field name="status_id"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="srdc_hr_employee_inherit" model="ir.ui.view">
+        <field name="name">srdc.hr.employee.tree.inherit</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit" ref="hr.view_employee_tree"/>
+        <field name="arch" type="xml">
+            <tree>
+
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_srdc_hr_employee" model="ir.actions.act_window">
+        <field name="name">Employees</field>
+        <field name="res_model">hr.employee</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

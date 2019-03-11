@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--<record model="ir.module.category" id="module_management">-->
+        <!--<field name="name">Srdc Configuration</field>-->
+        <!--<field name="descriptions">User access level for this module</field>-->
+        <!--<field name="sequence">3</field>-->
+    <!--</record>-->
+
+    <!--&lt;!&ndash;UOM&ndash;&gt;-->
+    <!--<record id="group_staff_uom" model="res.groups">-->
+        <!--<field name="name">Srdc UOM Staff</field>-->
+        <!--<field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>-->
+        <!--<field name="user" eval="[(4, ref('base.user_root'))]"/>-->
+        <!--<field name="category_id" ref="srdc_configuration.module_management"/>-->
+    <!--</record>-->
+
+    <!--&lt;!&ndash;VAT&ndash;&gt;-->
+    <!--<record id="group_staff_vat" model="res.groups">-->
+        <!--<field name="name">Srdc VAT Staff</field>-->
+        <!--<field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>-->
+        <!--<field name="user" eval="[(4, ref('base.user_root'))]"/>-->
+        <!--<field name="category_id" ref="srdc_configuration.module_management"/>-->
+    <!--</record>-->
+
+
+    <!--<record id="group_manager" model="res.groups">-->
+        <!--<field name="name">Manager</field>-->
+        <!--<field name="implied_ids" eval="[(4, ref('srdc_configuration.group_ceo'))]"/>-->
+        <!--<field name="category_id" ref="srdc_configuration.module_management"/>-->
+    <!--</record>-->
+</odoo>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="web_layout_inherit" inherit_id="web.layout" name="Web layout inherit">
+        <xpath expr="//title" position="replace">
+            <title t-esc="title or 'SaiGon RDC'"/>
+        </xpath>
+        <xpath expr="//link" position="replace">
+            <link type="image/x-icon" rel="shortcut icon" t-att-href="x_icon or '/instantia_theme/static/src/img/icon.ico'"/>
+        </xpath>
+    </template>
+</odoo>

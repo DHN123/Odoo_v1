@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Partner Form View -->
+    <record model="ir.ui.view" id="partner_form_view_inherit">
+        <field name="name">partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook//field[@name='child_ids']//form//group//field[@name='email']" position="after">
+                <field name="birthday" string="Birthday/Anniversary"/>
+            </xpath>
+            <!--<xpath expr="//page[@name='sales_purchases']//field[@name='supplier']" position="after">-->
+                <!--<field name="department_id"/>-->
+            <!--</xpath>-->
+            <xpath expr="//field[@name='category_id']" position="after">
+                <field name="birthday" string="Birthday/Anniversary"/>
+            </xpath>
+            <xpath expr="//field[@name='vat']" position="after">
+                <field name="max_amount"/>
+                <field name="discount_value"/>
+            </xpath>
+            <xpath expr="//page[@name='sales_purchases']" position="attributes">
+                <attribute name="invisible">0</attribute>
+            </xpath>
+            <xpath expr="//page[@name='sales_purchases']//field[@name='customer']" position="after">
+                <field name="is_competitor"/>
+                <field name="consultant"/>
+                <field name="investor"/>
+            </xpath>
+            <xpath expr="//field[@name='child_ids']/.." position="attributes">
+                    <attribute name="attrs">{'invisible': [('is_competitor', '=', True), ('customer', '=', False)]}</attribute>
+            </xpath>
+            <xpath expr="//page[@name='accounting']" position="attributes">
+                <attribute name="attrs">{'invisible': [('is_competitor', '=', True), ('customer', '=', False)]}</attribute>
+            </xpath>
+            <xpath expr="//page[@name='sales_purchases']//field[@name='ref']" position="replace"/>
+            <xpath expr="//div[@class='oe_title']">
+                <field name="ref" placeholder="Code ..."/>
+                <field name="full_name" placeholder="Full name ..."/>
+            </xpath>
+            <xpath expr="//field[@name='state_id']" position="before">
+                <field name="ward_id" class="o_address_city" placeholder="Ward"
+                       domain="[('district_id','=',district_id)]"
+                       options="{&quot;no_open&quot;: True}"
+                       attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"
+                       context="{'district_id': district_id}"/>
+                <field name="district_id" class="o_address_state" placeholder="District"
+                       domain="[('state_id','=',state_id)]"
+                       options="{&quot;no_open&quot;: True}"
+                       attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"
+                       context="{'state_id': state_id}"/>
+            </xpath>
+            <xpath expr="//field[@name='name']" position="attributes">
+                <attribute name="placeholder">Short name ... </attribute>
+            </xpath>
+            <xpath expr="//field[@name='state_id']" position="attributes">
+                <attribute name="placeholder">City</attribute>
+            </xpath>
+            <xpath expr="//field[@name='street2']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='city']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='zip']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='company_type']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//notebook//field[@name='child_ids']/form//field[@name='state_id']" position="before">
+                <field name="ward_id" class="o_address_city" placeholder="Ward"
+                       domain="[('district_id','=',district_id)]"
+                       options="{&quot;no_open&quot;: True}"
+                       attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"
+                       context="{'district_id': district_id}"/>
+                <field name="district_id" class="o_address_state" placeholder="District"
+                       domain="[('state_id','=',state_id)]"
+                       options="{&quot;no_open&quot;: True}"
+                       attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"
+                       context="{'state_id': state_id}"/>
+            </xpath>
+            <xpath expr="//notebook//field[@name='child_ids']/form//field[@name='state_id']" position="attributes">
+                <attribute name="placeholder">City</attribute>
+            </xpath>
+            <xpath expr="//notebook//field[@name='child_ids']/form//field[@name='street2']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//notebook//field[@name='child_ids']/form//field[@name='city']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//notebook//field[@name='child_ids']/form//field[@name='zip']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//button[@name='toggle_active']" position="before">
+                <button class="oe_stat_button" type="action" name="%(srdc_contract_list_action)d"
+                        context="{'search_default_partner_id': active_id}" icon="fa-clipboard"
+                        attrs="{'invisible': [('customer', '!=', True)]}">
+                    <field string="Contracts" name="count_contract" widget="statinfo"/>
+                </button>
+                <button class="oe_stat_button" type="action" name="%(project_customer_list_action)d"
+                        context="{'search_default_partner_id': active_id}" icon="fa-apple"
+                        attrs="{'invisible': [('customer', '!=', True)]}">
+                    <field string="Projects" name="count_project" widget="statinfo" />
+                </button>
+                <button class="oe_stat_button" type="action" name="%(project_competitor_list_action)d"
+                        context="{'search_default_partner_id': active_id}" icon="fa-apple"
+                        attrs="{'invisible': [('is_competitor', '!=', True)]}">
+                    <field string="Projects" name="count_project" widget="statinfo" />
+                </button>
+                <button class="oe_stat_button" type="action" name="%(action_project_project)d"
+                        context="{'search_default_consultant_id': active_id}" icon="fa-apple"
+                        attrs="{'invisible': [('consultant', '!=', True)]}">
+                    <field string="Projects" name="count_project" widget="statinfo"/>
+                </button>
+                <button class="oe_stat_button" type="action" name="%(action_project_project)d"
+                        context="{'search_default_partner_id': active_id}" icon="fa-apple"
+                        attrs="{'invisible': [('investor', '!=', True)]}">
+                    <field string="Projects" name="count_project" widget="statinfo"/>
+                </button>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_competitor_form" model="ir.actions.act_window">
+        <field name="name">Competitor</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="domain">[('is_competitor','=',True), ('parent_id', '=', False)]</field>
+        <field name="context">{'default_is_competitor': 1, 'default_customer': 0}</field>
+        <field name="search_view_id" ref="base.view_res_partner_filter"/>
+    </record>
+
+    <record id="action_investor_form" model="ir.actions.act_window">
+        <field name="name">Investor</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="domain">[('investor','=',True), ('parent_id', '=', False)]</field>
+        <field name="context">{'default_investor': 1, 'default_customer': 0}</field>
+        <field name="search_view_id" ref="base.view_res_partner_filter"/>
+    </record>
+
+    <record id="action_consultant_form" model="ir.actions.act_window">
+        <field name="name">Consultant</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="domain">[('consultant','=',True), ('parent_id', '=', False)]</field>
+        <field name="context">{'default_consultant': 1, 'default_customer': 0}</field>
+        <field name="search_view_id" ref="base.view_res_partner_filter"/>
+    </record>
+</odoo>

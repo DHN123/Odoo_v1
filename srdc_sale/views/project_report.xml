@@ -1,0 +1,29 @@
+<odoo>
+    <!--Form View-->
+    <record model="ir.ui.view" id="project_report_form">
+        <field name="name">project_report_form</field>
+        <field name="model">project.report</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <div>
+                            <field name="description"/>
+                        </div>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--Tree View-->
+    <record model="ir.ui.view" id="project_report_tree">
+        <field name="name">project_report_tree</field>
+        <field name="model">project.report</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

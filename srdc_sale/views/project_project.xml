@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Project Form View -->
+    <record model="ir.ui.view" id="project_form_view_inherit">
+        <field name="name">project.form</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header">
+                <field name="state" widget="statusbar" clickable="1"/>
+            </xpath>
+            <xpath expr="//field[@name='name']/.." position="after">
+                <field name="full_name" placeholder="Full Name ..."/>
+                (<field name="code" placeholder="Project's Code ..."/>)
+            </xpath>
+            <xpath expr="//notebook">
+                <page name="list_customer" string="List of Customer">
+                    <field name="customer_ids" context="{'default_project_id': active_id}" nolabel="1">
+                        <tree>
+                            <field name="partner_id" string="Customer"/>
+                            <field name="contract_id"
+                                   context="{'default_project_id': active_id, 'default_partner_id': partner_id}"/>
+                            <field name="user_id"/>
+                            <field name="tender_package_id"/>
+                            <field name="description"/>
+                        </tree>
+                    </field>
+                </page>
+                <page name="list_distance" string="Distance">
+                    <field name="distance_ids" context="{'default_project_id': active_id}" nolabel="1">
+                        <tree editable="top">
+                            <field name="company_id" groups="base.group_multi_company" string="Plant"/>
+                            <field name="distance"/>
+                        </tree>
+                    </field>
+                </page>
+                <page name="list_competitor" string="List of Competitor">
+                    <field name="competitor_ids" context="{'default_project_id': active_id}" nolabel="1">
+                        <tree editable="top">
+                            <field name="partner_id" string="Competitor"/>
+                            <field name="description"/>
+                        </tree>
+                    </field>
+                </page>
+                <page name="description" string="Description">
+                    <field name="description" placeholder="e.g. Description ..."/>
+                </page>
+                <page name="project_report" string="Project Report">
+                    <div>
+                        <field name="project_report_ids"/>
+                    </div>
+                </page>
+            </xpath>
+            <xpath expr="//notebook/page[@name='settings']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//notebook/page[@name='settings']" position="after">
+                <page name="settings1" string="Settings">
+                    <group>
+                        <group string="Investor" name="investor">
+                            <field name="partner_id" string="Investor"/>
+                            <field name="partner_manager_id"
+                                   domain="[('parent_id', '=', partner_id)]"
+                                   attrs="{'readonly': [('partner_id', '=', False)]}"/>
+                            <field name="partner_other_id"
+                                   domain="[('parent_id', '=', partner_id)]"
+                                   attrs="{'readonly': [('partner_id', '=', False)]}"/>
+                        </group>
+                        <group string="Consultant" name="consultant">
+                            <field name="consultant_id" options='{"no_open": True, "no_create":True}'/>
+                            <field name="consultant_chief_id"
+                                   domain="[('parent_id', '=', consultant_id)]"
+                                   attrs="{'readonly': [('consultant_id', '=', False)]}"/>
+                            <field name="consultant_other_id"
+                                   domain="[('parent_id', '=', consultant_id)]"
+                                   attrs="{'readonly': [('consultant_id', '=', False)]}"/>
+                        </group>
+                    </group>
+                    <group col="4">
+                        <label for="location_x" string="Coordinates"/>
+                        <div>
+                            (<field name="location_x" class="oe_inline" readonly="1"/>,
+                            <field name="location_y"  class="oe_inline" readonly="1"/>)
+                        </div>
+                        <label for="street" string="Address"/>
+                        <div class="o_address_format">
+                            <field name="street" placeholder="Street..." class="o_address_street"/>
+                            <field name="ward_id" placeholder="Ward" class="o_address_city"
+                                   domain="[('district_id','=',district_id)]"
+                                   options="{&quot;no_open&quot;: True}" context="{'district_id': district_id}"/>
+                            <field name="district_id" placeholder="District" class="o_address_city"
+                                   options="{&quot;no_open&quot;: True}" context="{'state_id': state_id}"/>
+                            <field name="state_id" class="o_address_state" placeholder="City"
+                                   options="{&quot;no_open&quot;: True}" context="{'country_id': country_id}"/>
+                            <field name="country_id" placeholder="Country" class="o_address_country"
+                                   options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}"/>
+                        </div>
+                    </group>
+                </page>
+            </xpath>
+            <xpath expr="//notebook//page[@name='description']" position="before">
+                <page name="project_estimation" string="Project Estimation">
+                    <group>
+                        <group>
+                            <!--<field name="total_volume"/>-->
+                            <field name="actual_supplied"/>
+                            <label for="rdc_volume" string="Estimate RDC Volume"/>
+                            <div>
+                                <field name="rdc_volume"/>
+                                (m3)
+                            </div>
+                        </group>
+                        <group>
+                            <field name="estimate_start"/>
+                            <field name="estimate_end_date"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="input_ids" context="{'default_project_id': active_id}" nolabel="1">
+                            <tree editable="bottom">
+                                <field name="project_id" invisible="1"/>
+                                <field name="name" string="Level"/>
+                                <field name="estimate_volume" sum="Estimate Volume"/>
+                                <field name="note"/>
+                            </tree>
+                        </field>
+                    </group>
+                </page>
+            </xpath>
+            <xpath expr="//button[@name='toggle_active']" position="before">
+                <button class="oe_stat_button" type="action" name="%(action_sale_order_all)d" icon="fa-usd"
+                        context="{'search_default_project_id': active_id}">
+                    <field string="Order" name="order_count" widget="statinfo"/>
+                </button>
+            </xpath>
+            <xpath expr="//div[@name='options_active']" position="replace"/>
+            <xpath expr="//field[@name='task_count']/.." position="replace"/>
+            <xpath expr="//field[@name='doc_count']/.." position="replace"/>
+        </field>
+    </record>
+
+    <record id="view_project_project_filter_inherit" model="ir.ui.view">
+        <field name="name">project.project.form.inherit</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project_project_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="consultant_id" string="Consultant"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_project_project" model="ir.actions.act_window">
+        <field name="name">Projects</field>
+        <field name="res_model">project.project</field>
+        <field name="view_type">form</field>
+        <field name="domain">[]</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="project.view_project_project_filter"/>
+    </record>
+</odoo>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="srdc_uom_tree" model="ir.ui.view">
+        <field name="name">srdc.uom.uom.tree</field>
+        <field name="model">srdc.uom.uom</field>
+        <field name="arch" type="xml">
+            <tree editable="top">
+                <field name="name"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_srdc_uom" model="ir.actions.act_window">
+        <field name="name">Srdc Unit of Measure</field>
+        <field name="res_model">srdc.uom.uom</field>
+        <field name="view_mode">tree</field>
+    </record>
+</odoo>

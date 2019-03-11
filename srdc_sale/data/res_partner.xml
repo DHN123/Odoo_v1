@@ -1,0 +1,10 @@
+<odoo>
+    <record model="res.partner" id="partner_retail">
+        <field name="name">Retail customers</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="customer" eval="True"/>
+        <field name="company_type">person</field>
+        <field name="email">info@retail.com</field>
+        <field name="image" type="base64" file="base/static/img/avatar.png"/>
+    </record>
+</odoo>

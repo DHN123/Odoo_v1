@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="value_initial" model="srdc.trialmix.result.value">
+        <field name="name">Initial</field>
+        <field name="sequence">1</field>
+    </record>
+
+    <record id="value_after_1h" model="srdc.trialmix.result.value">
+        <field name="name">After 1h</field>
+        <field name="sequence">2</field>
+    </record>
+
+    <record id="value_after_2h" model="srdc.trialmix.result.value">
+        <field name="name">After 2h</field>
+        <field name="sequence">3</field>
+    </record>
+
+    <record id="value_after_3h" model="srdc.trialmix.result.value">
+        <field name="name">After 3h</field>
+        <field name="sequence">4</field>
+    </record>
+
+    <record id="value_r3" model="srdc.trialmix.result.value">
+        <field name="name">R3</field>
+        <field name="sequence">100</field>
+    </record>
+
+    <record id="value_r7" model="srdc.trialmix.result.value">
+        <field name="name">R7</field>
+        <field name="sequence">101</field>
+    </record>
+
+    <record id="value_r14" model="srdc.trialmix.result.value">
+        <field name="name">R14</field>
+        <field name="sequence">102</field>
+    </record>
+
+    <record id="value_ct" model="srdc.trialmix.result.value">
+        <field name="name">CT</field>
+        <field name="sequence">103</field>
+    </record>
+
+    <record id="value_r28" model="srdc.trialmix.result.value">
+        <field name="name">R28</field>
+        <field name="sequence">104</field>
+    </record>
+
+    <record id="value_backup" model="srdc.trialmix.result.value">
+        <field name="name">Backup</field>
+        <field name="sequence">105</field>
+    </record>
+</odoo>

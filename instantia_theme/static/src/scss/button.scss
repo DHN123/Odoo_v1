@@ -1,0 +1,72 @@
+.btn:focus{
+	outline: none !important;
+}
+
+.o_cp_left .btn-primary,
+.oe_module_action .btn-primary,
+.o_statusbar_buttons .btn-primary,
+.btn-primary:hover{
+	border-color: #00A09D;
+    background-color: #00A09D;
+    color: #fff;
+}
+
+.btn-primary:focus, .btn-primary.focus{
+	box-shadow: none !important;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #007a77;
+    border-color: #006d6b;
+}
+
+.o_cp_left .btn-secondary,
+.o_statusbar_buttons .btn-secondary{
+    background-color: white;
+    border-color: white;
+    color: #00A09D;
+}
+
+.btn-secondary:hover{
+    color: #212529;
+    background-color: #e6e5e5;
+    border-color: #e6e5e5;
+}
+
+
+.o_searchview .o_searchview_facet .o_searchview_facet_label{
+	background: #000000 !important;
+}
+
+.btn:active, .btn.active {
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+.btn-group.open .dropdown-toggle {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background-color: #fff !important;
+}
+
+.btn-link {
+    font-weight: 400;
+    color: #008784;
+    background-color: transparent;
+}
+
+.btn-link:hover {
+    color: #003a39;
+    text-decoration: none;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.o_statusbar_buttons .btn{
+	border-radius: 5px;
+}
+
+.tooltip .tooltip-inner .oe_tooltip_string{
+	background: #008784;
+}

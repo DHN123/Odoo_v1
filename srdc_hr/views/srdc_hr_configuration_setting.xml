@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="srdc_hr_configuration_setting_form_inherit" model="ir.ui.view">
+        <field name="name">srdc.hr.configuration.form.inherit</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <form>
+
+            </form>
+        </field>
+    </record>
+
+    <record id="srdc_hr_configuration_setting_tree_inherit" model="ir.ui.view">
+        <field name="name">srdc.hr.configuration.tree.inherit</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit" ref="hr.view_employee_category_list"/>
+        <field name="arch" type="xml">
+            <tree>
+
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_srdc_hr_configuration_setting" model="ir.actions.act_window">
+        <field name="name">Configuration</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

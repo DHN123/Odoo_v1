@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="srdc_hr_department_form_inherit" model="ir.ui.view">
+        <field name="name">srdc.hr.department.form.inherit</field>
+        <field name="model">hr.department</field>
+        <field name="inherit_id" ref="hr.view_department_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="department_code"
+                       attrs="{'required': True}"/>
+                <field name="functions_of_each_plant"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="srdc_hr_department_tree_inherit" model="ir.ui.view">
+        <field name="name">srdc.hr.department.tree.inherit</field>
+        <field name="model">hr.department</field>
+        <field name="inherit_id" ref="hr.view_department_tree"/>
+        <field name="arch" type="xml">
+            <tree>
+
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_srdc_hr_department" model="ir.actions.act_window">
+        <field name="name">Department</field>
+        <field name="res_model">hr.department</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="srdc_groups_form_inherit" model="ir.ui.view">
+        <field name="name">srdc.groups.form.inherit</field>
+        <field name="model">res.groups</field>
+        <field name="inherit" ref="base.view_groups_form"/>
+        <field name="arch" type="xml">
+            <form>
+
+            </form>
+        </field>
+    </record>
+
+    <record id="srdc_groups_tree_inherit" model="ir.ui.view">
+        <field name="name">srdc.groups.tree.inherit</field>
+        <field name="model">res.groups</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="full_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_srdc_groups" model="ir.actions.act_window">
+        <field name="name">Groups</field>
+        <field name="res_model">res.groups</field>
+        <field name="view_mode">tree,kanban,form,pivot,graph,activity</field>
+    </record>
+
+</odoo>

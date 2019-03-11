@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <!--Cốt liệu thô-->
+    <record model="product.template" id="product1">
+        <field name="name">Đá 5x20</field>
+        <field name="categ_id" ref="product_category_cas"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">1</field>
+    </record>
+
+    <record model="product.template" id="product2">
+        <field name="name">Đá 5x20 VS</field>
+        <field name="categ_id" ref="product_category_cas"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">2</field>
+    </record>
+
+    <record model="product.template" id="product3">
+        <field name="name">Đá 5x16 VS</field>
+        <field name="categ_id" ref="product_category_cas"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">3</field>
+    </record>
+
+    <record model="product.template" id="product4">
+        <field name="name">Đá 5x12.5 VS</field>
+        <field name="categ_id" ref="product_category_cas"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">4</field>
+    </record>
+
+    <record model="product.template" id="product5">
+        <field name="name">Đá 5x13(Mi sàng)</field>
+        <field name="categ_id" ref="product_category_cas"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">5</field>
+    </record>
+
+    <record model="product.template" id="product6">
+        <field name="name">Đá 5x9.5</field>
+        <field name="categ_id" ref="product_category_cas"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">6</field>
+    </record>
+
+    <record model="product.template" id="product7">
+        <field name="name">KARAMZITE(5X20)</field>
+        <field name="categ_id" ref="product_category_cas"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">7</field>
+    </record>
+
+    <record model="product.template" id="product8">
+        <field name="name">KARAMZITE(5X20)</field>
+        <field name="categ_id" ref="product_category_cas"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">8</field>
+    </record>
+
+    <!--Cốt liệu min-->
+    <record model="product.template" id="product9">
+         <field name="name">River Sand</field>
+        <field name="categ_id" ref="product_category_fin"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">9</field>
+    </record>
+
+    <record model="product.template" id="product10">
+         <field name="name">Mi nghiền/M.S</field>
+        <field name="categ_id" ref="product_category_fin"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">10</field>
+    </record>and
+
+    <record model="product.template" id="product11">
+         <field name="name">Keramzite 0x4.75</field>
+        <field name="categ_id" ref="product_category_fin"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">11</field>
+    </record>
+
+    <record model="product.template" id="product12">
+         <field name="name">Dust M.sand</field>
+        <field name="categ_id" ref="product_category_fin"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">12</field>
+    </record>
+
+    <record model="product.template" id="product13">
+         <field name="name">Other meterial</field>
+        <field name="categ_id" ref="product_category_fin"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">13</field>
+    </record>
+
+    <!--Chất kết dính-->
+    <record model="product.template" id="product14">
+         <field name="name">OPC</field>
+        <field name="categ_id" ref="product_category_cem"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">14</field>
+    </record>
+
+    <record model="product.template" id="product15">
+         <field name="name">PCB40</field>
+        <field name="categ_id" ref="product_category_cem"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">15</field>
+    </record>
+
+    <record model="product.template" id="product16">
+         <field name="name">Type II Cement</field>
+        <field name="categ_id" ref="product_category_cem"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">16</field>
+    </record>
+
+    <record model="product.template" id="product17">
+         <field name="name">SLAG</field>
+        <field name="categ_id" ref="product_category_cem"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">17</field>
+    </record>
+
+    <record model="product.template" id="product18">
+         <field name="name">Fly ash</field>
+        <field name="categ_id" ref="product_category_cem"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">18</field>
+    </record>
+
+    <record model="product.template" id="product19">
+         <field name="name">Silicarfume</field>
+        <field name="categ_id" ref="product_category_cem"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">19</field>
+    </record>
+
+    <record model="product.template" id="product20">
+         <field name="name">Limestone Powder</field>
+        <field name="categ_id" ref="product_category_cem"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">20</field>
+    </record>
+
+    <record model="product.template" id="product_template_water">
+         <field name="name">Water</field>
+        <field name="categ_id" ref="product_category_water"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">21</field>
+    </record>
+
+    <record model="product.template" id="product_template_chong_tham">
+         <field name="name">Waterproofing</field>
+        <field name="categ_id" ref="product_category_adm"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">22</field>
+    </record>
+
+    <record model="product.template" id="product_template_duy_tri">
+         <field name="name">Maintain</field>
+        <field name="categ_id" ref="product_category_adm"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">23</field>
+    </record>
+
+    <record model="product.template" id="product_template_scc_chay">
+         <field name="name">SCC Run</field>
+        <field name="categ_id" ref="product_category_adm"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">24</field>
+    </record>
+
+    <record model="product.template" id="product_template_scc_chay">
+         <field name="name">SCC Run</field>
+        <field name="categ_id" ref="product_category_adm"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">24</field>
+    </record>
+
+    <record model="product.template" id="product_template_ket_dong_som">
+         <field name="name">Soon Frozen</field>
+        <field name="categ_id" ref="product_category_adm"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">25</field>
+    </record>
+
+
+    <!--<record model="product.template" id="product21">
+         <field name="name">MIGHTY 80RA</field>
+        <field name="categ_id" ref="product_category_adm"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">21</field>
+    </record>
+
+    <record model="product.template" id="product22">
+         <field name="name">MIGHT RD</field>
+        <field name="categ_id" ref="product_category_adm"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">22</field>
+    </record>
+
+    <record model="product.template" id="product23">
+         <field name="name">MIGHTY SR</field>
+        <field name="categ_id" ref="product_category_adm"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">23</field>
+    </record>
+
+    <record model="product.template" id="product49">
+         <field name="name">MIGHTY 3000H!</field>
+        <field name="categ_id" ref="product_category_adm"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">24</field>
+    </record>
+
+    <record model="product.template" id="product24">
+         <field name="name">MIGHTY 3000H1</field>
+        <field name="categ_id" ref="product_category_adm"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">25</field>
+    </record>
+
+    <record model="product.template" id="product25">
+         <field name="name">3000 PC1</field>
+        <field name="categ_id" ref="product_category_adm"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">26</field>
+    </record>
+
+    <record model="product.template" id="product26">
+         <field name="name">3000 PC2</field>
+        <field name="categ_id" ref="product_category_adm"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">27</field>
+    </record>
+
+    <record model="product.template" id="product27">
+         <field name="name">MV.SCC</field>
+        <field name="categ_id" ref="product_category_adm"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">28</field>
+    </record>
+
+    <record model="product.template" id="product28">
+         <field name="name">21 ESM</field>
+        <field name="categ_id" ref="product_category_adm"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">29</field>
+    </record>
+
+    <record model="product.template" id="product29">
+         <field name="name">21 ES</field>
+        <field name="categ_id" ref="product_category_adm"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">30</field>
+    </record>
+
+    <record model="product.template" id="product30">
+         <field name="name">300 LSC</field>
+        <field name="categ_id" ref="product_category_adm"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">31</field>
+    </record>
+
+    <record model="product.template" id="product31">
+         <field name="name">3000 H1</field>
+        <field name="categ_id" ref="product_category_adm"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">32</field>
+    </record>
+
+    <record model="product.template" id="product32">
+         <field name="name">SOFT CLEAN</field>
+        <field name="categ_id" ref="product_category_adm"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">33</field>
+    </record>
+
+    &lt;!&ndash;SILKROAD&ndash;&gt;
+    <record model="product.template" id="product33">
+         <field name="name">SSA 2000</field>
+        <field name="categ_id" ref="product_category_adm"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">34</field>
+    </record>
+
+    <record model="product.template" id="product34">
+         <field name="name">SSA 3000</field>
+        <field name="categ_id" ref="product_category_adm"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">35</field>
+    </record>
+
+    <record model="product.template" id="product35">
+         <field name="name">SK 1500</field>
+        <field name="categ_id" ref="product_category_adm"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">36</field>
+    </record>
+
+    <record model="product.template" id="product36">
+         <field name="name">5000F</field>
+        <field name="categ_id" ref="product_category_adm"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">37</field>
+    </record>
+
+    &lt;!&ndash;GRACE&ndash;&gt;
+    <record model="product.template" id="product37">
+         <field name="name">D45</field>
+        <field name="categ_id" ref="product_category_adm"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">38</field>
+    </record>
+
+    <record model="product.template" id="product38">
+         <field name="name">D155</field>
+        <field name="categ_id" ref="product_category_adm"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">39</field>
+    </record>
+
+    <record model="product.template" id="product39">
+         <field name="name">MIRA 188EX</field>
+        <field name="categ_id" ref="product_category_adm"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">40</field>
+    </record>
+
+    <record model="product.template" id="product40">
+         <field name="name">MIRA 188S</field>
+        <field name="categ_id" ref="product_category_adm"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">41</field>
+    </record>
+
+    <record model="product.template" id="product41">
+         <field name="name">MIRA 199</field>
+        <field name="categ_id" ref="product_category_adm"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">42</field>
+    </record>
+
+    <record model="product.template" id="product42">
+         <field name="name">ADVA 8002</field>
+        <field name="categ_id" ref="product_category_adm"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">43</field>
+    </record>
+
+    &lt;!&ndash;SIKA&ndash;&gt;
+    <record model="product.template" id="product43">
+         <field name="name">204H</field>
+        <field name="categ_id" ref="product_category_adm"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">44</field>
+    </record>
+
+    <record model="product.template" id="product44">
+         <field name="name">3000-20M</field>
+        <field name="categ_id" ref="product_category_adm"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">45</field>
+    </record>
+
+    <record model="product.template" id="product45">
+         <field name="name">3168</field>
+        <field name="categ_id" ref="product_category_adm"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">46</field>
+    </record>
+
+    <record model="product.template" id="product46">
+         <field name="name">151 V</field>
+        <field name="categ_id" ref="product_category_adm"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">47</field>
+    </record>
+
+    <record model="product.template" id="product47">
+         <field name="name">ZHV</field>
+        <field name="categ_id" ref="product_category_adm"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">48</field>
+    </record>
+
+    <record model="product.template" id="product48">
+         <field name="name">PLASTOCRETEN</field>
+        <field name="categ_id" ref="product_category_adm"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="sequence">49</field>
+    </record>-->
+</odoo>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Form View-->
+    <record model="ir.ui.view" id="srdc_contract_form">
+        <field name="name">srdc.contract</field>
+        <field name="model">srdc.contract</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,committed,done"/>
+                    <button name="btn_committed" states="draft" type="object" string="Committed" class="oe_highlight"/>
+                    <button name="btn_done" states="committed" type="object" string="Done" class="oe_highlight"/>
+                    <button name="btn_set_to_draft" states="cancel" type="object" string="Draft" class="oe_highlight"/>
+                    <button name="btn_lawyer" states="draft" type="object" string="Lawyer Review" class="btn btn-secondary"/>
+                    <button name="btn_lawyer_approve" states="lawyer" type="object" string="Lawyer Approve" class="btn btn-secondary"/>
+                    <button name="btn_pending" states="draft,committed" type="object" string="Pending" class="btn btn-secondary"/>
+                    <button name="btn_cancel" states="draft,committed,pending" type="object" string="Cancel" class="btn btn-secondary"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box" groups="base.group_user">
+                        <button class="oe_stat_button" type="action" name="%(action_sale_order_all)d" icon="fa-usd"
+                                context="{'search_default_contract_id': active_id}">
+                            <field string="Order" name="order_count" widget="statinfo"/>
+                        </button>
+                        <button class="oe_stat_button" type="action" name="%(srdc_io_list_action)d"
+                                context="{'search_default_contract_id': active_id}" icon="fa-info-circle">
+                            <field string="IO" name="count_io" widget="statinfo"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Contract Name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="partner_id"/>
+                            <field name="project_id"/>
+                            <label for="date_from" string="Period"/>
+                            <div>
+                                <field name="date_from" class="oe_inline"/> - <field name="date_to" class="oe_inline"/>
+                            </div>
+                            <field name="date_plan_to"/>
+                            <field name="payment_date"/>
+                            <field name="user_id"/>
+                        </group>
+                        <group>
+                            <field name="max_qty"/>
+                            <field name="max_amount" options="{'currency_field': 'currency_id'}"/>
+                            <field name="payment_term_id"/>
+                            <field name="is_temp"/>
+                            <field name="is_sign"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="currency_id" options="{'no_create': True, 'no_open': True}"
+                                   groups="base.group_multi_currency"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <!--<page name="list_grade" string="List of Grade">
+                            <field name="line_ids" context="{'default_contract_id': active_id}">
+                                <tree editable="top">
+                                    <field name="product_id" on_change="_onchange_product_id(product_id)"/>
+                                    <field name="mix_code"/>
+                                    <field name="quantity"/>
+                                    <field name="amount"/>
+                                    <field name="is_sign" string="Sign"/>
+                                    <field name="is_trialmix" string="TrialMix"/>
+                                    <field name="description" string="Note"/>
+                                </tree>
+                            </field>
+                        </page>-->
+                        <page name="description_page" string="Descriptions">
+                            <field name="description"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!--Tree View-->
+    <record model="ir.ui.view" id="srdc_contract_tree">
+        <field name="name">srdc.contract.tree</field>
+        <field name="model">srdc.contract</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="user_id"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="srdc_contract_filter" model="ir.ui.view">
+        <field name="name">srdc.contract.search</field>
+        <field name="model">srdc.contract</field>
+        <field name="arch" type="xml">
+            <search string="Employees">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="user_id"/>
+                <field name="project_id"/>
+                <separator/>
+                <group expand="0" string="Group By">
+                    <filter string="User" name="state" domain="[]" context="{'group_by':'user_id'}"/>
+                    <filter string="Customer" name="customer" domain="[]" context="{'group_by':'partner_id'}"/>
+                    <filter string="Project" name="project" domain="[]" context="{'group_by':'project_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="srdc_contract_list_action">
+        <field name="name">Contracts</field>
+        <field name="res_model">srdc.contract</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

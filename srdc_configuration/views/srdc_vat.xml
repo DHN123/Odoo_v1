@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="srdc_vat_tree">
+        <field name="name">srdc.vat.tree</field>
+        <field name="model">srdc.vat</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_srdc_vat">
+        <field name="name">Srdc Vat</field>
+        <field name="res_model">srdc.vat</field>
+        <field name="view_mode">tree</field>
+    </record>
+</odoo>

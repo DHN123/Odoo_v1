@@ -1,0 +1,88 @@
+<odoo>
+    <!--Form View-->
+    <record model="ir.ui.view" id="srdc_io_form">
+        <field name="name">srdc.io.form</field>
+        <field name="model">srdc.io</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" placeholder="Name ..." required="True"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="contract_id" required="1"/>
+                            <field name="distance"/>
+                            <field name="company_id"  groups="base.group_multi_company"/>
+                        </group>
+                        <group>
+                            <field name="type_standard"/>
+                            <field name="data_file" filename="file_name"/>
+                            <field name="file_name" invisible="1"/>
+                            <field name="is_temp"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="line" string="Line">
+                            <field name="line_ids" context="{'default_io_id': active_id}">
+                                <tree editable="top">
+                                    <field name="product_id"/>
+                                    <field name="mix_code"/>
+                                    <field name="is_temp"/>
+                                    <field name="is_trialmix"/>
+                                    <!--<field name="flow_attrs"/>-->
+                                    <!--<field name="slump_attrs"/>-->
+                                    <!--<field name="water_proof_level_attrs"/>-->
+                                    <field name="quantity"/>
+                                    <field name="uom_id"/>
+                                    <field name="amount"/>
+                                    <field name="description"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="sampling_standard" string="Sampling Standard">
+                            <field name="sampling_standard" nolabel="1" placeholder="Sampling Standard ..."/>
+                        </page>
+                        <page name="description" string="Description">
+                            <field name="description" nolabel="1" placeholder="Description ..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--Tree View-->
+    <record model="ir.ui.view" id="srdc_io_tree">
+        <field name="name">srdc.io.tree</field>
+        <field name="model">srdc.io</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="contract_id"/>
+                <field name="is_temp"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--Search View-->
+    <record model="ir.ui.view" id="srdc_io_search">
+        <field name="name">srdc.io.search</field>
+        <field name="model">srdc.io</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="contract_id"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="srdc_io_list_action">
+        <field name="name">IO</field>
+        <field name="res_model">srdc.io</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

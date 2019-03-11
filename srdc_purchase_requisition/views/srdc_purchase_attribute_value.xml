@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="srdc_purchase_attribute_tree" model="ir.ui.view">
+        <field name="name">srdc.purchase.attribute.tree</field>
+        <field name="model">srdc.purchase.attribute.value</field>
+        <field name="arch" type="xml">
+            <tree editable="top">
+                <field name="attribute_id"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_purchase_attribute_value" model="ir.actions.act_window">
+        <field name="name">Purchase Attribute Value</field>
+        <field name="res_model">srdc.purchase.attribute.value</field>
+        <field name="view_mode">tree</field>
+    </record>
+</odoo>

@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_order_form_inherit" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='sale_pay']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//group[@name='sales_person']/field[@name='client_order_ref']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//group[@name='sales_person']/field[@name='require_signature']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//group[@name='sales_person']/field[@name='require_payment']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//group[@name='sales_person']/field[@name='reference']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//group[@name='sale_shipping']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='sale_order_option_ids']/.." position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="project_id"
+                       attrs="{'readonly': [('state', 'not in', ['new', 'to_manager_approve', 'to_sale_approve', 'compute_price', 'qc_optimize', 'draft', 'sent'])],
+                       'readonly': [('partner_id', '=', False)]}"
+                       options="{'no_open':True,'no_create':True}"/>
+                <field name="io_id" readonly="1"/>
+                <field name="order_pump_sale"
+                       attrs="{'readonly': [('partner_id', '=', False)]}"
+                       class="col-2"
+                       options="{'no_open':True,'no_create':True}"/>
+            </xpath>
+            <xpath expr="//header/field[@name='state']" position="attributes">
+                <attribute name="statusbar_visible">
+                    new,draft,sent,sale
+                </attribute>
+            </xpath>
+            <xpath expr="//field[@name='partner_id']" position="attributes">
+                <attribute name="attrs">{'readonly': [('state', 'not in', ['new', 'to_manager_approve',
+                    'to_sale_approve', 'compute_price', 'qc_optimize', 'draft',
+                    'sent'])]}
+                </attribute>
+            </xpath>
+            <xpath expr="//field[@name='validity_date']" position="attributes">
+                <attribute name="attrs">{'invisible': [('state', 'in', ['new', 'to_manager_approve', 'to_sale_approve',
+                    'compute_price', 'qc_optimize', 'sale', 'done'])]}
+                </attribute>
+            </xpath>
+            <xpath expr="//field[@name='confirmation_date']" position="attributes">
+                <attribute name="attrs">{'invisible': [('state', 'in', ['new', 'to_manager_approve', 'to_sale_approve',
+                    'compute_price', 'qc_optimize', 'draft', 'sent',
+                    'cancel'])]}
+                </attribute>
+            </xpath>
+            <xpath expr="//field[@name='payment_term_id']" position="attributes">
+                <attribute name="attrs">{'invisible': [('state', 'in', ['new', 'to_manager_approve', 'to_sale_approve',
+                    'compute_price', 'qc_optimize'])]}
+                </attribute>
+            </xpath>
+            <xpath expr="//field[@name='pricelist_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//page[@name='order_lines']" position="after">
+                <page string="Concrete Pump"
+                      name="concrete pump"
+                      attrs="{'invisible': [('state', 'in', ['new', 'to_manager_approve', 'to_sale_approve',
+                    'compute_price', 'qc_optimize', 'sale', 'done'])]}">
+                    <field name="concrete_pump_ids"
+                           create="False">
+                        <tree editable="1" create="0">
+                            <field name="name" readonly="True" options="{'no_open':True,'no_create':True}"/>
+                            <field name="order_pump" readonly="True" options="{'no_open':True,'no_create':True}"/>
+                            <field name="floor_elevation" readonly="True" options="{'no_open':True,'no_create':True}"/>
+                            <field name="block_m3_nail"/>
+                            <field name="block_m3_component"/>
+                            <field name="block_times_nail" readonly="True" options="{'no_open':True,'no_create':True}"/>
+                            <field name="block_times_component" readonly="True" options="{'no_open':True,'no_create':True}"/>
+                            <field name="selection"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+            <xpath expr="//field[@name='pricelist_id']" position="after">
+                <field name="is_refund" invisible="1"/>
+                <field name="is_fast_quotation" invisible="1"/>
+                <label for="transportation" string="Transportation"/>
+                <div>
+                    <field name="transportation"
+                           attrs="{'required': [('state', '=', 'qc_optimize')], 'readonly': [('state', 'not in', ['new', 'qc_optimize', 'compute_price'])] }"/>
+                    (VND)
+                </div>
+                <label for="toll_booths_num" string="Toll Booths Num"/>
+                <div>
+                    <field name="toll_booths_num"
+                           attrs="{'required': [('state', '=', 'qc_optimize')], 'readonly': [('state', 'not in', ['new', 'qc_optimize', 'compute_price'])] }"/>
+                    (VND)
+                </div>
+                <field name="is_rush_hour"
+                       attrs="{'required': [('state', '=', 'qc_optimize')], 'readonly': [('state', 'not in', ['new', 'qc_optimize', 'compute_price'])] }"/>
+                <label for="commission" string="Commission"/>
+                <div>
+                    <field name="commission"
+                           attrs="{'required': [('state', '=', 'qc_optimize')], 'readonly': [('state', 'not in', ['new', 'qc_optimize', 'compute_price'])] }"/>
+                    (VND)
+                </div>
+
+                <field name="deadline"
+                       attrs="{'required': [('state', '=', 'qc_optimize')], 'readonly': [('state', 'not in', ['new', 'qc_optimize', 'compute_price'])] }"/>
+            </xpath>
+            <xpath expr="//header">
+                <button name="%(wizard_request_qc_action)d" states="new,qc_optimize" type="action"
+                        string="Request To QC" class="oe_highlight"/>
+                <button name="%(wizard_generate_io_action)d" type="action" string="Request IO" class="oe_highlight"
+                        attrs="{'invisible': ['|', ('state', 'not in', ['draft', 'sale', 'done']), ('io_id', '!=', False)]}"/>
+                <button name="btn_tender_quotation" states="new" type="object"
+                        string="Tender Quotation"
+                        class="oe_highlight"/>
+                <button name="action_request_to_accounting" states="qc_optimize" type="object"
+                        string="Request to Accountant"
+                        class="oe_highlight"/>
+                <button name="action_comeback_to_qc" states="to_sale_approve,to_manager_approve" type="object"
+                        string="Refuse"
+                        class="btn btn-secondary"/>
+                <button name="action_request_to_sale" states="compute_price" type="object" string="Request to Sale"
+                        class="oe_highlight"/>
+                <button name="action_request_to_manager" states="to_sale_approve" type="object"
+                        string="Sale Approve"
+                        class="oe_highlight"/>
+                <button name="action_request_to_quotation" states="to_manager_approve" type="object" string="Approve"
+                        class="oe_highlight"/>
+                <button name="btn_request_trialmix" type="object" string="Request Trial-Mix" class="oe_highlight"
+                        attrs="{'invisible': [('state', 'in', ['sale', 'done', 'cancel'])]}"/>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/tree/field[@name='price_unit']" position="attributes">
+                <attribute name="string">Suggest Price</attribute>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/tree/control/create[1]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/tree/control/create[2]" position="attributes">
+                <attribute name="string">Choose a MAC</attribute>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/tree/control/create[3]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/tree/control/create[4]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/tree/field[@name='tax_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/tree/field[@name='price_unit']" position="after">
+                <field name="computed_price"
+                       attrs="{'invisible': [('parent.state', 'not in', ['new', 'qc_optimize', 'compute_price', 'to_sale_approve', 'to_manager_approve'])]}"/>
+                <field name="mix_code_id" invisible="1"/>
+                <field name="mix_code_deli_id" invisible="1"/>
+                <field name="margin"
+                       attrs="{'invisible': [('parent.state', 'not in', ['new', 'qc_optimize', 'compute_price', 'to_sale_approve', 'to_manager_approve'])]}"/>
+            </xpath>
+            <xpath expr="//div[@name='button_box']">
+                <button class="oe_stat_button" type="action" name="%(srdc_qc.srdc_trial_mix_action_form)d"
+                        context="{'search_default_order_id': active_id}" icon="fa-star-o">
+                    <field string="Trial-mix" name="trial_mix_count" widget="statinfo"/>
+                </button>
+                <button class="oe_stat_button" type="action" name="%(srdc_qc.action_srdc_mix_procedure)d"
+                        context="{'search_default_order_id': active_id}" icon="fa-info-circle">
+                    <field string="Procedure" name="procedure_count" widget="statinfo"/>
+                </button>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_order_tree_inherit" model="ir.ui.view">
+        <field name="name">sale.order.tree.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='state']" position="attributes">
+                <attribute name="invisible">0</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_sales_order_filter_inherit" model="ir.ui.view">
+        <field name="name">sale.order.filter.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='user_id']" position="after">
+                <field name="project_id" required="1"/>
+                <field name="contract_id"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_customer_order" model="ir.actions.act_window">
+        <field name="name">Customer Order</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sale.order</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,kanban,form,calendar,pivot,graph,activity</field>
+        <field name="search_view_id" ref="sale.sale_order_view_search_inherit_sale"/>
+        <field name="domain">[('state', 'in', ('new', 'to_manager_approve', 'to_sale_approve', 'compute_price',
+            'qc_optimize'))]
+        </field>
+    </record>
+
+    <record id="action_sale_order_all" model="ir.actions.act_window">
+        <field name="name">Sales Orders</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sale.order</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,kanban,form,calendar,pivot,graph,activity</field>
+        <field name="search_view_id" ref="sale.sale_order_view_search_inherit_sale"/>
+    </record>
+
+    <record id="sale.action_quotations_with_onboarding" model="ir.actions.act_window">
+        <field name="context">{'search_default_my_quotation': 1, 'default_state': 'draft'}</field>
+    </record>
+</odoo>

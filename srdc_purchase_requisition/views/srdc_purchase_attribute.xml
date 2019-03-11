@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="srdc_purchase_attribute_view" model="ir.ui.view">
+        <field name="name">srdc.purchase.attribute.view</field>
+        <field name="model">srdc.purchase.attribute</field>
+        <field name="arch" type="xml">
+            <form>
+                <div>
+                    <label for="name" string="Attribute Name"/>
+                    <field name="name"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="srdc_purchase_attribute_tree" model="ir.ui.view">
+        <field name="name">srdc.purchase.attribute.tree</field>
+        <field name="model">srdc.purchase.attribute</field>
+        <field name="arch" type="xml">
+            <tree editable="top">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_purchase_attribute" model="ir.actions.act_window">
+        <field name="name">Purchase Attribute</field>
+        <field name="res_model">srdc.purchase.attribute</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,104 @@
+<odoo>
+    <!--Form View-->
+    <record id="srdc_concrete_pump_category_form" model="ir.ui.view">
+        <field name="name">srdc_concrete_pump_category_form</field>
+        <field name="model">srdc.concrete.pump.category</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" string="Category name" class="oe_edit_only"/>
+                        <h1><field name="name" options="{'no_open':True,'no_create':True}"/></h1>
+                    </div>
+                    <div>
+                        <group>
+                            <field name="floor_elevation" options="{'no_open':True,'no_create':True}" class="col-4"/>
+                            <field name="order_pump" options="{'no_open':True,'no_create':True}" class="col-2"/>
+                        </group>
+                    </div>
+                    <div>
+                        <div>
+                            <label for="block_m3_nail"
+                               string="Khối Lượng Bơm VAT 10%, >25m3(vnd/m3)/Bơm móng, sàn"
+                               attrs="{'invisible': ['|', ('order_pump', '=', False), ('order_pump', '!=', 2)]}"/>
+                            <label for="block_m3_nail"
+                               string="Khối Lượng Bơm VAT 10%, >30m3(vnd/m3)/Bơm móng, sàn"
+                               attrs="{'invisible': ['|', ('order_pump', '=', False), ('order_pump', '!=', 3)]}"/>
+                            <field name="block_m3_nail"
+                                   attrs="{'readonly': [('order_pump', '=', 0.00)]}"/>(VND)
+                        </div>
+                        <div>
+                            <label for="block_m3_component"
+                               string="Khối Lượng Bơm VAT 10%, >25m3(vnd/m3)/Bơm cấu kiện"
+                               attrs="{'invisible': ['|', ('order_pump', '=', False), ('order_pump', '!=', 2)]}"
+                                />
+                            <label for="block_m3_component"
+                               string="Khối Lượng Bơm VAT 10%, >30m3(vnd/m3)/Bơm cấu kiện"
+                               attrs="{'invisible': ['|', ('order_pump', '=', False), ('order_pump', '!=', 3)]}"
+                                />
+                            <field name="block_m3_component" attrs="{'readonly': [('order_pump', '=', 0.00)]}"/>(VND)
+                        </div>
+                        <div>
+                            <label for="block_times_nail"
+                               string="Khối Lượng Bơm VAT 10%, &lt;=25m3(vnd/lần)/Bơm móng, sàn"
+                               attrs="{'invisible': ['|', ('order_pump', '=', False), ('order_pump', '!=', 2)]}"/>
+                            <label for="block_times_nail"
+                               string="Khối Lượng Bơm VAT 10%, &lt;=30m3(vnd/lần)/Bơm móng, sàn"
+                               attrs="{'invisible': ['|', ('order_pump', '=', False), ('order_pump', '!=', 3)]}"/>
+                            <div>
+                                <field name="block_times_nail"/>(VND)
+                            </div>
+                        </div>
+                        <div>
+                            <label for="block_times_component"
+                               string="Khối Lượng Bơm VAT 10%, &gt;=25m3(vnd/lần)/Bơm cấu kiện"
+                               attrs="{'invisible': ['|', ('order_pump', '=', False), ('order_pump', '!=', 2)]}"/>
+                            <label for="block_times_component"
+                               string="Khối Lượng Bơm VAT 10%, &gt;=30m3(vnd/lần)/Bơm cấu kiện"
+                               attrs="{'invisible': ['|', ('order_pump', '=', False), ('order_pump', '!=', 3)]}"/>
+                            <div>
+                                <field name="block_times_component"/>(VND)
+                            </div>
+                        </div>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--Tree View-->
+    <record id="srdc_concrete_pump_category_tree" model="ir.ui.view">
+        <field name="name">srdc_concrete_pump_category_tree</field>
+        <field name="model">srdc.concrete.pump.category</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="floor_elevation"/>
+                <field name="order_pump"/>
+                <field name="block_m3_nail"/>
+                <field name="block_m3_component"/>
+                <field name="block_times_nail"/>
+                <field name="block_times_component"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--Search View-->
+    <record id="srdc_concrete_pump_category_search" model="ir.ui.view">
+        <field name="name">srdc_concrete_pump_category_search</field>
+        <field name="model">srdc.concrete.pump.category</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="order_pump"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="srdc_concrete_pump_category_action" model="ir.actions.act_window">
+        <field name="name">Concrete Pump Attributes Categories</field>
+        <field name="res_model">srdc.concrete.pump.category</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('sale_order_id', '=', False)]</field>
+    </record>
+</odoo>

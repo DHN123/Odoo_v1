@@ -1,0 +1,87 @@
+<odoo>
+    <!--Form View-->
+    <record model="ir.ui.view" id="mix_design_form">
+        <field name="name">Mix Design Form</field>
+        <field name="model">srdc.mix.design</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="btn_confirm" string="Confirm" type="object" class="btn-primary" states="draft"/>
+                    <button name="btn_start_lab_test" string="Start LAB Test" type="object" class="btn-primary" states="confirmed"/>
+                    <button name="btn_validate" string="Validate" type="object" class="btn-primary" states="lab_test"/>
+                    <button name="btn_approve" string="Approve" type="object" class="btn-primary" states="validated"/>
+                    <button name="btn_set_to_draft" string="Reset" type="object" class="btn-secondary" states="cancel"/>
+                    <button name="btn_pending" string="Pending" type="object" class="btn-secondary" states="draft,confirmed,lab_test,validated"/>
+                    <button name="btn_cancel" string="Cancel" type="object" class="btn-secondary" states="draft,confirmed,lab_test,validated,pending"/>
+                    <field name="state" widget="statusbar" clickable="1"/>
+                </header>
+                <sheet>
+                    <field name="is_auto" invisible="1"/>
+                    <field name="product_id" invisible="1"/>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button"
+                                   options="{&quot;terminology&quot;: &quot;archive&quot;}"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Name ..."/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="product_id" attrs="{'readonly': [('is_auto','=', True)]}"/>
+                            <field name="product_qty"/>
+                            <field name="total_amount"/>
+                        </group>
+                        <group>
+                            <field name="is_standard"/>
+                            <field name="sequence"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="line" string="Lines">
+                            <field name="line_ids" context="{'default_mix_design_id': active_id}" nolabel="1">
+                                <tree editable="top">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="categ_id" string="Category"/>
+                                    <field name="product_id" string="Product"/>
+                                    <field name="product_tmpl_id" invisible="1"/>
+                                    <field name="supplierinfo_id" domain="[('product_id', '=', product_id)]"
+                                           context="{'default_product_id': product_id, 'default_product_tmpl_id': product_tmpl_id}"/>
+                                    <field name="quantity"/>
+                                    <field name="oum_id"/>
+                                    <field name="device"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--Tree View-->
+    <record model="ir.ui.view" id="mix_design_tree">
+        <field name="name">Mix Design Tree</field>
+        <field name="model">srdc.mix.design</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="product_id"/>
+                <field name="is_standard"/>
+                <field name="product_qty"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="mix_design_form_action">
+        <field name="name">Mix Design</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">srdc.mix.design</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

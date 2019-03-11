@@ -1,0 +1,9 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_srdc_mix_procedure_user,srdc_mix_procedure user,model_srdc_mix_procedure,,1,1,1,1
+access_srdc_mix_procedure_line_user,srdc_mix_procedure_line user,model_srdc_mix_procedure_line,,1,1,1,1
+access_srdc_mix_design_user,srdc_mix_design user,model_srdc_mix_design,,1,1,1,1
+access_srdc_mix_design_line_user,srdc_mix_design_line user,model_srdc_mix_design_line,,1,1,1,1
+access_srdc_trialmix,srdc_trialmix,model_srdc_trialmix,,1,1,1,1
+access_srdc_trialmix_line,srdc_trialmix_line,model_srdc_trialmix_line,,1,1,1,1
+access_srdc_trialmix_result_value,srdc_trialmix_result_value,model_srdc_trialmix_result_value,,1,1,1,1
+access_srdc_trialmix_result,srdc_trialmix_result,model_srdc_trialmix_result,,1,1,1,1

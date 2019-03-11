@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="product_category_material" model="product.category">
+        <field name="name">Material</field>
+    </record>
+    <record id="product_category_cas" model="product.category">
+        <field name="parent_id" ref="product_category_material"/>
+        <field name="name">Coarseregate Agg</field>
+        <field name="sequence">1</field>
+    </record>
+    <record id="product_category_fin" model="product.category">
+        <field name="parent_id" ref="product_category_material"/>
+        <field name="name">Fine Agg</field>
+        <field name="sequence">2</field>
+    </record>
+    <record id="product_category_cem" model="product.category">
+        <field name="parent_id" ref="product_category_material"/>
+        <field name="name">Cementitious Agent</field>
+        <field name="sequence">3</field>
+    </record>
+    <record id="product_category_water" model="product.category">
+        <field name="parent_id" ref="product_category_material"/>
+        <field name="name">Water</field>
+        <field name="sequence">4</field>
+    </record>
+    <record id="product_category_adm" model="product.category">
+        <field name="parent_id" ref="product_category_material"/>
+        <field name="name">Admixture</field>
+        <field name="sequence">5</field>
+    </record>
+</odoo>
